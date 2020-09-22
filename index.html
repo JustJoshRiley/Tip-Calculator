@@ -8,8 +8,10 @@
 
         <header>
             <div id="display">
-                <p id="display-tip">Tip</p>
-                <p id="display-total">Total</p>
+                <h4>Tip</h4>
+                <p id="display-tip"></p>
+                <h4>Total</h4>
+                <p id="display-total"></p>
             </div>
         </header>
         <main>
@@ -33,11 +35,11 @@
             const displayTip = document.getElementById('display-tip')
             const displayTotal = document.getElementById('display-total')
 
-            inputBill.addEventListener('change',calculateTip)
+            inputBill.addEventListener('input',calculateTip)
 
-            inputTip.addEventListener('change',calculateTip)
+            inputTip.addEventListener('input',calculateTip)
 
-            inputPeople.addEventListener('change',calculateTip)
+            inputPeople.addEventListener('input',calculateTip)
 
             function calculateTip() {
                 const bill = parseFloat(inputBill.value)
@@ -46,7 +48,10 @@
 
                 const tip = (bill * percent / 100) / people;
                 const total = bill + tip;
-                console.log(tip, total)
+                // console.log(tip, total)
+
+                displayTip.innerHTML = tip;
+                displayTotal.innerHTML = total;
             }
 
 
